@@ -2,7 +2,8 @@ FROM alpine
 
 RUN apk add --update nodejs nodejs-npm
 
-# Create app directory
+COPY . /usr/src/app
+
 WORKDIR /usr/src/app
 
 # Install app dependencies
@@ -11,9 +12,5 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 
 RUN npm install
-
-# Bundle app source
-COPY . .
-
 EXPOSE 8080
 ENTRYPOINT [ "node", "server.js" ]
