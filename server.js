@@ -12,9 +12,11 @@ const app = express();
 app.set('views', 'views');
 app.set('view engine', 'pug');
 
+var greet = process.env.greet || 'Docker learners';
+console.log(`greet value=${greet}`);
+
 app.get('/', function(req, res) {
-    res.render('home', {
-  });
+    res.render('home', { greet: greet});
 });
 
 app.listen(PORT, HOST);
