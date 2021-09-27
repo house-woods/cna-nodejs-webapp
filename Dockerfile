@@ -1,6 +1,6 @@
 FROM alpine
 
-RUN apk add --update nodejs nodejs-npm
+RUN apk add --update nodejs npm
 
 COPY . /usr/src/app
 
